@@ -23,7 +23,42 @@ public class Interval {
         return null;
     }
     public Interval intersect(Interval i){
-        return null;
+        Interval interval = null;
+        double pTacka, kTacka;
+        boolean pTackaUkljucena, kTackaUkljucena;
+        if(this.pocetnaTacka>=i.pocetnaTacka) {
+            pTacka = this.pocetnaTacka;
+            if(this.pocetnaTacka == i.pocetnaTacka){
+
+                if(this.pripadaIntervaluPocetna || i.pripadaIntervaluPocetna) pTackaUkljucena=true;
+                else pTackaUkljucena = false;
+            }
+            pTackaUkljucena = this.pripadaIntervaluPocetna;
+        }
+        else {
+            pTacka = i.pocetnaTacka;
+            pTackaUkljucena = i.pripadaIntervaluPocetna;
+        }
+
+
+        if(this.krajnjaTacka>=i.krajnjaTacka) {
+            kTacka = i.krajnjaTacka;
+            if(this.krajnjaTacka == i.krajnjaTacka){
+
+                if(this.pripadaIntervaluKrajnja || i.pripadaIntervaluKrajnja) kTackaUkljucena=true;
+                else pTackaUkljucena = false;
+            }
+            kTackaUkljucena = i.pripadaIntervaluKrajnja;
+        }
+        else {
+            kTacka = this.pocetnaTacka;
+            kTackaUkljucena = this.pripadaIntervaluPocetna;
+        }
+
+        interval = new Interval(pTacka, kTacka, pTackaUkljucena, kTackaUkljucena);
+
+
+        return i;
     }
 
     boolean isNull(){
