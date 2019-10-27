@@ -61,6 +61,38 @@ public class Interval {
         return i;
     }
 
+    public double getPocetnaTacka() {
+        return pocetnaTacka;
+    }
+
+    public void setPocetnaTacka(double pocetnaTacka) {
+        this.pocetnaTacka = pocetnaTacka;
+    }
+
+    public double getKrajnjaTacka() {
+        return krajnjaTacka;
+    }
+
+    public void setKrajnjaTacka(double krajnjaTacka) {
+        this.krajnjaTacka = krajnjaTacka;
+    }
+
+    public boolean isPripadaIntervaluPocetna() {
+        return pripadaIntervaluPocetna;
+    }
+
+    public void setPripadaIntervaluPocetna(boolean pripadaIntervaluPocetna) {
+        this.pripadaIntervaluPocetna = pripadaIntervaluPocetna;
+    }
+
+    public boolean isPripadaIntervaluKrajnja() {
+        return pripadaIntervaluKrajnja;
+    }
+
+    public void setPripadaIntervaluKrajnja(boolean pripadaIntervaluKrajnja) {
+        this.pripadaIntervaluKrajnja = pripadaIntervaluKrajnja;
+    }
+
     boolean isNull(){
         boolean zaVratiti = false;
         if(pocetnaTacka == 0.0 && krajnjaTacka == 0.0 )
