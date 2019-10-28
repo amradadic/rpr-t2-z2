@@ -20,13 +20,100 @@ public class Interval {
     }
 
     public static Interval intersect(Interval i, Interval i2) {
-        return null;
-    }
-    public Interval intersect(Interval i){
-        Interval interval = null;
+        Interval interval = new Interval();
         double pTacka, kTacka;
         boolean pTackaUkljucena, kTackaUkljucena;
-        if(this.pocetnaTacka>=i.pocetnaTacka) {
+
+        if(i.getPocetnaTacka() > i2.getKrajnjaTacka() || i2.getPocetnaTacka() > i.getKrajnjaTacka()){
+            //nema presjeka
+            System.out.println("tu sam");
+            return interval;}
+
+        if(i.getPocetnaTacka()>i2.getPocetnaTacka()){
+            interval.setPocetnaTacka(i.getPocetnaTacka());
+            if(i.isPripadaIntervaluPocetna()){
+                interval.setPripadaIntervaluPocetna(true);
+            }
+            else interval.setPripadaIntervaluPocetna(false);
+        }
+
+        else if(interval.getPocetnaTacka() < i2.getPocetnaTacka()){
+            interval.setPocetnaTacka(i2.getPocetnaTacka());
+            if(i2.isPripadaIntervaluPocetna()){
+                interval.setPripadaIntervaluPocetna(true);
+            }
+            else interval.setPripadaIntervaluPocetna(false);
+
+        }
+
+        if(i.getKrajnjaTacka()< i2.getKrajnjaTacka()){
+            interval.setKrajnjaTacka(i.getKrajnjaTacka());
+            // interval.pocetnaTacka = interval.getPocetnaTacka();
+            if(i.isPripadaIntervaluKrajnja()){
+                interval.setPripadaIntervaluKrajnja(true);
+            }
+            else interval.setPripadaIntervaluKrajnja(false);
+        }
+
+        else if(i.getKrajnjaTacka()> i2.getKrajnjaTacka()){
+            interval.setKrajnjaTacka(i2.getKrajnjaTacka());
+            // interval.pocetnaTacka = interval.getPocetnaTacka();
+            if(i2.isPripadaIntervaluKrajnja()){
+                interval.setPripadaIntervaluKrajnja(true);
+            }
+            else interval.setPripadaIntervaluKrajnja(false);
+
+        }
+        return interval;
+
+    }
+
+    public Interval intersect(Interval i){
+        Interval interval = new Interval();
+        double pTacka, kTacka;
+        boolean pTackaUkljucena, kTackaUkljucena;
+
+        if(i.getPocetnaTacka() > this.getKrajnjaTacka() || this.getPocetnaTacka() > i.getKrajnjaTacka()){
+            //nema presjeka
+            System.out.println("tu sam");
+            return interval;}
+
+        if(i.getPocetnaTacka()>this.getPocetnaTacka()){
+            interval.setPocetnaTacka(i.getPocetnaTacka());
+            if(i.isPripadaIntervaluPocetna()){
+                interval.setPripadaIntervaluPocetna(true);
+            }
+            else interval.setPripadaIntervaluPocetna(false);
+        }
+
+        else if(interval.getPocetnaTacka() < this.getPocetnaTacka()){
+            interval.setPocetnaTacka(this.getPocetnaTacka());
+            if(this.isPripadaIntervaluPocetna()){
+                interval.setPripadaIntervaluPocetna(true);
+            }
+            else interval.setPripadaIntervaluPocetna(false);
+
+        }
+
+        if(i.getKrajnjaTacka()< this.getKrajnjaTacka()){
+            interval.setKrajnjaTacka(i.getKrajnjaTacka());
+           // interval.pocetnaTacka = interval.getPocetnaTacka();
+            if(i.isPripadaIntervaluKrajnja()){
+                interval.setPripadaIntervaluKrajnja(true);
+            }
+            else interval.setPripadaIntervaluKrajnja(false);
+        }
+
+        else if(i.getKrajnjaTacka()> this.getKrajnjaTacka()){
+            interval.setKrajnjaTacka(this.getKrajnjaTacka());
+            // interval.pocetnaTacka = interval.getPocetnaTacka();
+            if(this.isPripadaIntervaluKrajnja()){
+                interval.setPripadaIntervaluKrajnja(true);
+            }
+            else interval.setPripadaIntervaluKrajnja(false);
+
+        }
+       /* if(this.pocetnaTacka>=i.pocetnaTacka) {
             pTacka = this.pocetnaTacka;
             if(this.pocetnaTacka == i.pocetnaTacka){
 
@@ -57,8 +144,8 @@ public class Interval {
 
         interval = new Interval(pTacka, kTacka, pTackaUkljucena, kTackaUkljucena);
 
-
-        return i;
+*/
+        return interval;
     }
 
     public double getPocetnaTacka() {
